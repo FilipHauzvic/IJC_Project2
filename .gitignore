@@ -1,0 +1,7 @@
+test_input
+*.o
+*.so
+*.a
+tail
+wordcount
+wordcount-dynamic
