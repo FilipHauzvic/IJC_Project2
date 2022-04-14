@@ -11,12 +11,12 @@ void htab_clear(htab_t * t){
     for(size_t i = 0; i < t->arr_size; i++){
         while(t->arr_ptr[i] != NULL){
             // Find last pointer and remove it
-            htab_item_t *lastItem = t->arr_ptr[i];
-            while(lastItem->next != NULL){
-                lastItem = lastItem->next;
+            htab_item_t *last_item = t->arr_ptr[i];
+            while(last_item->next != NULL){
+                last_item = last_item->next;
             }
-            free(lastItem->item.key);
-            free(lastItem);
+            free(last_item->item.key);
+            free(last_item);
         }
     }
     t->size = 0;
