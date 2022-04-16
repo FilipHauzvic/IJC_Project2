@@ -9,15 +9,19 @@
 
 void htab_clear(htab_t * t){
     for(size_t i = 0; i < t->arr_size; i++){
-        while(t->arr_ptr[i] != NULL){
-            // Find last pointer and remove it
-            htab_item_t *last_item = t->arr_ptr[i];
-            while(last_item->next != NULL){
-                last_item = last_item->next;
-            }
-            free((char *)last_item->item.key);
-            free(last_item);
+        htab_item_t *tmp = t->arr_ptr[i];
+
+        while(tmp != NULL){
+            htab_item_t *next_item = tmp->next;
+
+            // casting to avoid compile warnings
+            free((char *)tmp->item.key);
+            free(tmp);
+
+            tmp = next_item;
         }
+
+        t->arr_ptr[i] = NULL;
     }
     t->size = 0;
 }

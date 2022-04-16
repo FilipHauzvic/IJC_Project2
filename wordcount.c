@@ -23,7 +23,6 @@ int main(){
     char word[MAX_WORD_LENGTH] = {0};
     int l;
     FILE *f = stdin;
-
     while((l = read_word(word, MAX_WORD_LENGTH, f)) != EOF){
         // skip whitespace characters between words
         if(word[0] == '\0'){

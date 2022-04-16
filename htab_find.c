@@ -14,6 +14,7 @@ htab_pair_t * htab_find(htab_t * t, htab_key_t key){
             if(strcmp(tmp->item.key, key) == 0){
                 return &(tmp->item);
             }
+            tmp = tmp->next;
         }
     }
     return NULL;

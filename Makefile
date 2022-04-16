@@ -24,7 +24,7 @@ io.o : io.c io.h
 
 libhtab.a: $(HTAB_C) htab.h htab_private.h
 	gcc $(CFLAGS) -c $(HTAB_C)
-	ar -cr libhtab.a $(HTAB_O)
+	ar crs libhtab.a $(HTAB_O)
 	ranlib libhtab.a
 
 libhtab.so: $(HTAB_C) htab.h htab_private.h
