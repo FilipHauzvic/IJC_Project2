@@ -20,7 +20,7 @@ bool htab_erase(htab_t * t, htab_key_t key){
                 }else{
                     prev->next = tmp->next;
                 }
-                free(tmp->item.key);
+                free((void *)tmp->item.key);
                 free(tmp);
                 t->size--;
                 //Resizing here

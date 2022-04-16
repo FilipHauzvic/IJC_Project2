@@ -25,7 +25,7 @@ htab_pair_t * htab_lookup_add(htab_t * t, htab_key_t key){
         }
 
         new_item->item.value = 1;
-        strcpy(new_item->item.key, key);
+        strcpy((char *)new_item->item.key, key);
         new_item->next = NULL;
 
         if(tmp == NULL){

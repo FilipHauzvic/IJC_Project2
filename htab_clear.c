@@ -15,7 +15,7 @@ void htab_clear(htab_t * t){
             while(last_item->next != NULL){
                 last_item = last_item->next;
             }
-            free(last_item->item.key);
+            free((char *)last_item->item.key);
             free(last_item);
         }
     }
