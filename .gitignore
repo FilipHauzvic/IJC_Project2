@@ -5,3 +5,4 @@ test_input
 tail
 wordcount
 wordcount-dynamic
+wordcount-.cc
