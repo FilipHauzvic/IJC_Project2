@@ -40,6 +40,10 @@ htab_pair_t * htab_lookup_add(htab_t * t, htab_key_t key){
         t->size++;
         // new_item scope only in this branch of if-statement
         tmp = new_item;
+
+        // if(((double)t->size/t->arr_size) > AVG_LEN_MAX){
+        //     htab_resize(t, t->arr_size * 2);
+        // }
     }else{
         input_pair->value++;
     }

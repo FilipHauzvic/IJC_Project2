@@ -11,8 +11,8 @@ int read_word(char *s, int max, FILE *f){
     int c;
 
     while((c = getc(f)) != EOF && !isspace(c)){
+        // word exceeded length limit
         if(length >= max - 1){
-            fprintf(stderr, "WARNING: Word exceeded maximum length limit");
             break;
         }
         s[length++] = c;

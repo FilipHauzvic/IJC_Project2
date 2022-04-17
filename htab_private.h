@@ -8,6 +8,9 @@
 
 #include "htab.h"
 
+#define AVG_LEN_MIN 5
+#define AVG_LEN_MAX 15
+
 typedef struct htab_item htab_item_t;
 struct htab_item{
     htab_pair_t item;

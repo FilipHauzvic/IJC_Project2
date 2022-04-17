@@ -23,8 +23,10 @@ bool htab_erase(htab_t * t, htab_key_t key){
                 free((void *)tmp->item.key);
                 free(tmp);
                 t->size--;
-                //Resizing here
                 
+                // if(((double)t->size/t->arr_size) < AVG_LEN_MIN){
+                //     htab_resize(t, t->arr_size * 2);
+                // }
                 return true;
             }else{
                 prev = tmp;

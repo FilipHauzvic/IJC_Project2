@@ -7,9 +7,13 @@
 #include "htab.h"
 #include "htab_private.h"
 
+#include <stdio.h>
+
 void htab_resize(htab_t *t, size_t newn){
     htab_t *new_table = htab_init(newn);
-
+    new_table->arr_size = newn;
+    new_table->size = t->size;
+    
     for(size_t i = 0; i < t->arr_size; i++){
         htab_item_t *tmp = t->arr_ptr[i];
         while(tmp != NULL){
@@ -21,5 +25,5 @@ void htab_resize(htab_t *t, size_t newn){
     }
 
     htab_free(t);
-    *t = *new_table;
+    t = new_table;
 }

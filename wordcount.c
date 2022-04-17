@@ -7,7 +7,7 @@
 #include "io.h"
 
 #define MAX_WORD_LENGTH 128
-#define HTAB_INIT_SIZE 255 // random for now, test speed of other values later
+#define HTAB_INIT_SIZE 255
 
 void print_pair(htab_pair_t *pair){
     printf("%s\t%i\n", pair->key, pair->value);
@@ -23,11 +23,19 @@ int main(){
     char word[MAX_WORD_LENGTH] = {0};
     int l;
     FILE *f = stdin;
+    bool length_warning = false;
+
     while((l = read_word(word, MAX_WORD_LENGTH, f)) != EOF){
         // skip whitespace characters between words
         if(word[0] == '\0'){
             continue;
         }
+
+        if(!length_warning && l == MAX_WORD_LENGTH - 1){
+            fprintf(stderr, "WARNING: Word exceeded maximum length limit");
+            length_warning = true;
+        }
+
         htab_pair_t *added = htab_lookup_add(table, word);
         if(added == NULL){
             fprintf(stderr, "Error adding word into table\n");
