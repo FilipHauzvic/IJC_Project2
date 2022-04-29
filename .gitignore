@@ -2,6 +2,7 @@ test_input*
 *.o
 *.so
 *.a
+*.zip
 tail
 wordcount
 wordcount-dynamic
